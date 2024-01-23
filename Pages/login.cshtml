@@ -1,0 +1,66 @@
+﻿@page
+@model DBProjectClone.Pages.Clients.loginModel
+@{
+}
+
+
+
+
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="~/css/StyleSheetLogin.css">
+
+
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+
+
+
+
+<body>
+  <div class="container">
+         @if(Model.errorMessage.Length>0)
+{
+    <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+        <strong>@Model.errorMessage</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>
+}
+
+
+@if(Model.succesMessage.Length>0)
+{
+    <div class='alert alert-success alert-dismissible fade show' role='alert'>
+        <strong>@Model.succesMessage</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>
+}
+    <div class="title">Login</div>
+    <div class="content">
+      <form method="POST">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="Enter your username"  name="username" value="@Model.fanAccount.UserName">
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" placeholder="Enter your password"  name="password" value="@Model.fanAccount.Password">
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Login">
+        </div>
+        </form>
+    </div>
+  </div>
+
+</body>
+
+
+
+
+
+
+
+

@@ -1,0 +1,76 @@
+﻿@page
+@using System.Data;
+@model DBProjectClone.Pages.ViewUsersModel
+@{
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+
+<div class="container" >
+<br>
+<h2>
+    List of Clients
+</h2>
+<div class="card">
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (DataRow item in Model.UserTable.Rows)
+                {
+                    <tr>
+                        <td>@item["UserName"]</td>
+                        <td>@item["Email"]</td>
+                        <td>
+                            <a class="btn btn-primary btn-lg" href="/ProfilePage?id=@item["UserName"]">View</a>
+                            <a class="btn btn-primary btn-lg" href="/EditProfile?id=@item["UserName"]">Edit</a>
+                            <a class="btn btn-primary btn-lg" href="/DeleteAccount?id=@item["UserName"]" role="button">Delete</a>
+                            <a class="btn btn-primary btn-lg" href="/ViewTransactions?id=@item["UserName"]" role="button">View Transactions</a>
+                        </td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+
+  
+
+
+
+
+<style>
+    body{
+        background: linear-gradient(var(--gr-1), #242333), url(../images/booking5.jpg) no-repeat center center;
+    }
+    h2{
+        color:white;
+    }
+
+    .card-body {
+        flex: 1 1 auto;
+        padding: 1rem 1rem;
+        border-radius:30px;
+        font-size:15px;
+    }
+
+    .card{
+        border-radius: 1.25rem;
+    }
+    /*.btn-lg, .btn-group-sm > .btn {
+        padding: 0.25rem 0.5rem;
+        font-size: .875rem;
+        border-radius: 0.2rem;
+    }*/
+</style>

@@ -1,0 +1,194 @@
+﻿@page
+@model DBProjectClone.Pages.EditPreviousMatchModel
+@{
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+
+
+@if (Model.errorMessage != "")
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+
+<div class="container py-5 h-100">
+
+    <div class="card">
+        <div class="card-body">
+            <form method="post">
+                <input type="hidden" name="id" value="@Model.matchInfo.MatchID" />
+
+                <div class="row mb-4">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example1">ShotsA</label>
+                            <input type="text" id="form6Example1" name="ShotsA" class="form-control" value="@Model.matchInfo.ShotsA" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example2">ShotsB</label>
+                            <input type="text" id="form6Example2" name="ShotsB" class="form-control" value="@Model.matchInfo.ShotsB" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example00">ScoreA</label>
+                            <input type="text" id="form6Example00" name="ScoreA" class="form-control" value="@Model.matchInfo.ScoreA" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example0">ScoreB</label>
+                            <input type="text" id="form6Example0" name="ScoreB" class="form-control" value="@Model.matchInfo.ScoreB" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example3">YellowsA</label>
+                            <input type="text" id="form6Example3" name="YellowsA" class="form-control" value="@Model.matchInfo.YellowsA" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example4">YellowsB</label>
+                            <input type="text" id="form6Example4" name="YellowsB" class="form-control" value="@Model.matchInfo.YellowsB" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example5">RedsA</label>
+                            <input type="text" id="form6Example5" name="RedsA" class="form-control" value="@Model.matchInfo.RedsA" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example6">RedsB</label>
+                            <input type="text" id="form6Example6" name="RedsB" class="form-control" value="@Model.matchInfo.RedsB" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example7">PassesA</label>
+                            <input type="text" id="form6Example7" name="PassesA" class="form-control" value="@Model.matchInfo.PassesA" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example8">PassesB</label>
+                            <input type="text" id="form6Example8" name="PassesB" class="form-control" value="@Model.matchInfo.PassesB" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example9">AccuracyA</label>
+                            <input type="text" id="form6Example9" name="AccuracyA" class="form-control" value="@Model.matchInfo.AccuracyA" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example10">AccuracyB</label>
+                            <input type="text" id="form6Example10" name="AccuracyB" class="form-control" value="@Model.matchInfo.AccuracyB" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example11">PossessionA</label>
+                            <input type="text" id="form6Example11" name="PossessionA" class="form-control" value="@Model.matchInfo.PossessionA" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example12">PossessionB</label>
+                            <input type="text" id="form6Example12" name="PossessionB" class="form-control" value="@Model.matchInfo.PossessionB" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example13">OffsidesA</label>
+                            <input type="text" id="form6Example13" name="OffsidesA" class="form-control" value="@Model.matchInfo.OffsidesA" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example14">OffsidesB</label>
+                            <input type="text" id="form6Example14" name="OffsidesB" class="form-control" value="@Model.matchInfo.OffSidesB" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example15">CornersA</label>
+                            <input type="text" id="form6Example15" name="CornersA" class="form-control" value="@Model.matchInfo.CornersA" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example16">CornersB</label>
+                            <input type="text" id="form6Example16" name="CornersB" class="form-control" value="@Model.matchInfo.CornersB" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example17">ShotsOnTargetA</label>
+                            <input type="text" id="form6Example17" name="ShotsOnTargetA" class="form-control" value="@Model.matchInfo.ShotsOnTargetA" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example18">ShotsOnTargetB</label>
+                            <input type="text" id="form6Example18" name="ShotsOnTargetB" class="form-control" value="@Model.matchInfo.ShotsonTargetB" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-4">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example19">FoulsA</label>
+                            <input type="text" id="form6Example19" name="FoulsA" class="form-control" value="@Model.matchInfo.FoulsA" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example20">FoulsB</label>
+                            <input type="text" id="form6Example20" name="FoulsB" class="form-control" value="@Model.matchInfo.FoulsB" />
+                        </div>
+                    </div>
+                </div>
+
+                @if (Model.successMessage != "")
+                {
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>@Model.successMessage</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+
+                <button type="submit" class="btn btn-primary btn-block mb-4">Edit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+

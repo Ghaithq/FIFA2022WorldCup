@@ -1,0 +1,164 @@
+﻿@page
+@model DBProjectClone.Pages.Upcoming
+@{
+}
+<head>
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/upcoming.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/main.css" asp-append-version="true">
+</head>
+@{
+
+    int i = 0;
+    int j = 0;
+}
+
+
+<form method="post">
+    <div class="filter">
+
+        <div>
+
+
+            <label for="stageCheckBox"> Stage</label>
+            <select id="stageComboBox" name="stageComboBox">
+                <option value="ALL">ALL</option>
+                <option value="2">Final</option>
+                <option value="4">Semi-Final</option>
+                <option value="8">Quartar Final</option>
+                <option value="16">stage 16</option>
+                <option value="32">Stage 32</option>
+            </select>
+        </div>
+        <div>
+
+            <label for="teamCheckBox"> Team</label>
+            <select id="teamComboBox" name="teamComboBox">
+                <option value="ALL">ALL</option>
+                @foreach (string t_name in Model.TeamNames)
+                {
+                    <option value=@t_name> @t_name</option>
+                }
+
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            filter
+        </button>
+
+    </div>
+</form>
+
+
+
+@if(Model.UserType!= null && Model.UserType=="1")
+{
+<div class="container-fluid">
+  <!-- Content here -->
+  <a href="/AddUpComingMatch">
+    <button type="button" class="btn btn-dark">Add UpComing Match</button>
+    </a>
+    </div>
+}
+
+
+
+
+<div class="card-deck">
+
+    @foreach (List<string> match in Model.matches)
+    {
+
+        @if (Model.filterEnabled == false || (Model.filterEnabled == true && ((Model.stageselected == match[6] &&
+                      Model.teamselected == "ALL" && Model.stageselected != "ALL") || (Model.stageselected == "ALL" &&
+                      Model.teamselected == "ALL") || (Model.stageselected == "ALL" &&
+                      Model.teamselected != "ALL" && (Model.teamselected == match[1] || Model.teamselected ==
+                      match[2])) || (Model.stageselected != "ALL" && Model.teamselected != "ALL" && Model.stageselected == match[6] && (Model.teamselected == match[1] || Model.teamselected == match[2])))))
+        {
+            <div class="card">
+                <div class="card-body">
+                    <div class="teamA">
+
+                        <img src=@Model.flags[@i] alt="" class="flag">
+                        <h4> @match[1]</h4>
+                    </div>
+                    @{
+                        i++;
+                    }
+                    <div class="vs">
+                        VS
+                    </div>
+                    <div class="teamB">
+                        <h4> @match[2]</h4>
+                        <img src=@Model.flags[@i] alt="" class="flag">
+                    </div>
+                    @{
+                        i++;
+                    }
+                    <div class="matchinfo">
+                        <div class="data "> Stage: @match[6] </div>
+                        <div class="data"> @match[5] </div>
+                        <div class="data"> Referee: @Model.referees[j] </div>
+                        <div class="data"> Referee : @Model.referees[j + 1] </div>
+                        <div class="data">Date: @match[7] </div>
+
+                        @*                <button type="button" asp-page="SelectType" asp-route-MatchID='@match[0]' asp-route-StadiumName='@match[5]'class="btn btn-primary ">
+                        *@
+
+                        @if (Model.UserType != null && Model.UserType == "2")
+                        {
+                            <a class="btn btn-primary btn-sm" asp-page="SelectType" asp-route-MatchID='@match[0]' asp-route-StadiumName='@match[5]'  role="button">Book</a>
+                        }
+
+
+                        @* <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Delete
+                            </button>*@
+
+
+                        @*<button type="button" href="/" class="btn btn-primary ">
+                            <span>Book</span>
+                            </button>*@
+
+
+                        @if (Model.UserType == "1")
+                        {
+                            <a href="/AddToPreviousMatches?id=@match[0]" class="btn btn-primary btn-lg" role="button">
+                                Add To Previous
+                            </a>
+                        }
+                        @if (Model.UserType == "1")
+                        {
+                            <a href="/EditUpComingMatch?id=@match[0]" class="btn btn-primary btn-lg" role="button">
+                                Edit
+                            </a>
+                        }
+                        @if (Model.UserType == "1")
+                        {
+                            <a href="/DeleteUpComingMatch?id=@match[0]" class="btn btn-primary btn-lg" role="button">
+                                Delete
+                            </a>
+                        }
+
+
+                        @{
+                            j += 2;
+                        }
+                    </div>
+                </div>
+
+
+            </div>
+        }
+    }
+    @{
+        Model.filterEnabled = false;
+
+    }
+
+</div>
+
+
+
+  

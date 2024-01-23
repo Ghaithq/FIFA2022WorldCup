@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor Accessor
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DBProjectClone</title>
+@*    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@ 
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="css/main.css" />
+
+</head>
+@{
+    string UserName = @Accessor.HttpContext.Session.GetString("Username");
+}
+<body>
+   <section id="hero">
+        <header class="header">
+            <div class="container">
+                <nav class="navigation">
+                    <a href="/Index" class="logo">
+                        <img src="images/logo.svg" alt="Logo" class="logo-img" />
+                    </a>
+                    <div class="mobile-menu-icon">
+                        <ion-icon name="menu-outline" class="menu_icon"></ion-icon>
+                    </div>
+                    <ul class="nav_menu">
+
+
+                        <li class="nav_list">
+                            <a href="/Upcoming" class="nav_link">Upcoming matches</a>
+                        </li>
+
+                        <li class="nav_list">
+                            <a href="/PrevMatches" class="nav_link">Previous matches</a>
+                        </li>
+                        <li class="nav_list">
+                            <a href="/Stadiums" class="nav_link">Stadiums</a>
+                        </li>
+                        <li class="nav_list">
+                            <a href="/TeamPage" class="nav_link">Teams</a>
+                        </li>
+
+                        @if (@Accessor.HttpContext.Session.GetString("Username") == null)
+                        {
+                            <li class="nav_list">
+                                <a class="nav_link active" asp-area="" asp-page="/login">Login</a>
+                            </li>
+                        }
+                        @if (@Accessor.HttpContext.Session.GetString("Username") == null)
+                        {
+                            <li class="nav_list">
+                                <a class="nav_link active" asp-area="" asp-page="/Add">Register</a>
+                            </li>
+                        }
+                        @if (@Accessor.HttpContext.Session.GetString("Username") != null)
+                        {
+                            <li class="nav_list">
+                                <a class="nav_link active"href="ProfilePage?id=@Accessor.HttpContext.Session.GetString("Username")">@Accessor.HttpContext.Session.GetString("Username")</a>
+                            </li>
+                        }
+                        @if (@Accessor.HttpContext.Session.GetString("Username") != null)
+                        {
+                            <li class="nav_list">
+                                <a class="nav_link active" asp-area="" asp-page="/Logout">Logout</a>
+                            </li>
+                        }
+                        
+
+                    </ul>
+                </nav>
+            </div>
+        </header> 
+    </section>
+   
+   
+   
+   
+@*   <div class="container">
+*@        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+@*    </div>
+*@
+    @*<footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - DBProjectClone - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>*@
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

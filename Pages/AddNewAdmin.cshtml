@@ -1,0 +1,43 @@
+﻿@page
+@model DBProjectClone.Pages.AddNewAdminModel
+@{
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<br />
+<div class="container py-5 h-100">
+
+    <h2>Add new admin</h2>
+    @if(Model.errorMessage.Length>0)
+    {
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>@Model.errorMessage</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+    }
+
+
+    <div class="card">
+        <div class="card-body">
+            <form method="post">
+                <input type="hidden" name="id"  />
+                <div class="row mb-4">
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example1">Username</label>
+                            <input type="text" id="form6Example1" name="Username" class="form-control"  />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-outline">
+                            <label class="form-label" for="form6Example2">Password</label>
+                            <input type="text" id="form6Example2" name="Password" class="form-control"  />
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block mb-4">Add</button>
+            </form>
+        </div>
+    </div>
+</div>

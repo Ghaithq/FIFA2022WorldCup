@@ -1,0 +1,34 @@
+﻿@page
+@using System.Data.SqlClient;
+
+@{
+
+    try
+    {
+        string matchID = Request.Query["id"];
+        string connectionString = @"Data Source=DESKTOP-8KA02T7;Initial Catalog=FIFAWorldCup;Integrated Security=True";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+
+            connection.Open();
+           
+            string DeleteQuery = "DELETE FROM Match WHERE ID=" + matchID;
+            using (SqlCommand command = new SqlCommand(DeleteQuery, connection))
+            {
+                command.ExecuteNonQuery();
+            }
+        }
+
+
+        Response.Redirect("PrevMatches");
+
+    }
+    catch (Exception ex)
+    {
+    }
+
+}
+
+
+

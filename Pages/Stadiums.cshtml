@@ -1,0 +1,25 @@
+﻿@page
+@model DBProjectClone.Pages.StadiumsModel
+@{
+}
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/main" />
+
+
+<br />
+
+<div class="container">
+@foreach(var item in Model.Stadiums){
+<div class="card bg-dark text-white" style="margin:20px">
+  <img class="card-img" src=@item.imgURL alt=@item.name>
+  <div class="card-img-overlay">
+    <h1 class="card-title" style="color:rgb(138,21,56);  font-weight:900;  font-family: sans-serif">@item.name</h1>
+    <h3 class="card-text" >@item.capacity Seats</h3>
+    <h3 class="card-text"  >@item.location</h3>
+  </div>
+</div>
+}
+</div>
+
+

@@ -1,0 +1,411 @@
+﻿@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.title {
+    font-weight: 900;
+    font-size: 30px;
+}
+
+.book {
+    /*background-color: #242333;*/
+    background: linear-gradient(var(--gr-1), #242333), url(../images/booking5.jpg) no-repeat center center;
+    background-size: cover;
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    font-family: "Lato", sans-serif;
+    margin: 0;
+}
+
+.movie-container {
+    margin: 20px 0;
+}
+
+    .movie-container select {
+        background-color: #fff;
+        border: 0;
+        border-radius: 5px;
+        font-size: 16px;
+        margin-left: 10px;
+        margin-top: 10px;
+        padding: 5px 15px 5px 15px;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+.container {
+    /*perspective: 1000px;*/
+    /*margin-bottom: 30px;*/
+}
+
+.seat {
+    background-color: #444451;
+    height: 26px;
+    width: 32px;
+    margin: 3px;
+    font-size: 50px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+    .seat.selected {
+        background-color: #8a1538;
+    }
+
+    .seat.sold {
+        background-color: #fff;
+    }
+
+    .seat:nth-of-type(2) {
+        margin-right: 18px;
+    }
+
+    .seat:nth-last-of-type(2) {
+        margin-left: 18px;
+    }
+
+    .seat:not(.sold):hover {
+        cursor: pointer;
+        transform: scale(1.2);
+    }
+
+.showcase .seat:not(.sold):hover {
+    cursor: default;
+    transform: scale(1);
+}
+
+.showcase {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #777;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    width: 330px;
+}
+
+    .showcase li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 10px;
+    }
+
+        .showcase li small {
+            margin-left: 2px;
+        }
+
+.row {
+    display: flex;
+}
+
+.screen {
+    background-color: #fff;
+    /*height: 120px;*/
+    width: 100%;
+    margin: 25px 0;
+    transform: rotateX(-48deg);
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+}
+
+p.text {
+    margin: 5px 0;
+}
+
+    p.text span {
+        color: rgb(158, 248, 158);
+    }
+
+
+.button input:hover {
+    /* transform: scale(0.99); */
+    background: linear-gradient(-135deg, #05036C, #9B1132);
+}
+
+.button input {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #05036C, #9B1132);
+    margin-left: 135px;
+}
+
+.button {
+    height: 45px;
+    margin: 35px;
+    align-content: center;
+    width: 300px;
+    background-size: cover;
+}
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+    left: 0;
+    background-color: #111;
+}
+
+/* Control the right side */
+.right {
+    right: 0;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+    /* Style the image inside the centered container, if needed */
+    .centered img {
+        width: 150px;
+        border-radius: 50%;
+    }
+
+.grid {
+    align-items: center;
+}
+
+
+.container2 {
+    max-width: 700px;
+    width: 100%;
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin: auto;
+    height: 250px;
+}
+
+    .container2 .title {
+        font-size: 25px;
+        font-weight: 500;
+        position: relative;
+    }
+
+        .container2 .title::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 30px;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #05036C, #9B1132);
+        }
+
+.custom-select {
+    position: relative;
+    font-family: Arial;
+}
+
+    .custom-select select {
+        display: none; /*hide original SELECT element: */
+    }
+
+.select-selected {
+    background-color: DodgerBlue;
+}
+
+    /* Style the arrow inside the select element: */
+    .select-selected:after {
+        position: absolute;
+        content: "";
+        top: 14px;
+        right: 10px;
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-color: #fff transparent transparent transparent;
+    }
+
+    /* Point the arrow upwards when the select box is open (active): */
+    .select-selected.select-arrow-active:after {
+        border-color: transparent transparent #fff transparent;
+        top: 7px;
+    }
+
+/* style the items (options), including the selected item: */
+.select-items div, .select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+    position: absolute;
+    background-color: DodgerBlue;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+select {
+    // A reset of styles, including removing the default dropdown arrow appearance: none;
+    background-color: transparent;
+    border: none;
+    padding: 0 1em 0 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+    // Stack above custom arrow z-index: 1;
+    // Remove dropdown arrow in IE10 & IE11 // @link https://www.filamentgroup.com/lab/select-css.html &::-ms-expand
+
+{
+    display: none;
+}
+
+// Remove focus outline, will add on alternate element
+outline: none;
+}
+
+.select {
+    display: grid;
+    background: #FBE6E5;
+    grid-template-areas: "select";
+    align-items: center;
+    position: relative;
+    font-size: 1.35rem;
+    select, &::after
+
+{
+    grid-area: select;
+}
+
+min-width: 15ch;
+max-width: 30ch;
+
+border: 1px solid var(--select-border);
+border-radius: 0.25em;
+padding: 0.25em 0.5em;
+
+cursor: pointer;
+line-height: 1.1;
+
+// Optional styles
+// remove for transparency
+background-color: #fff;
+
+
+// Custom arrow
+&:not(.select--multiple)::after {
+    content: "";
+    justify-self: end;
+    width: 0.8em;
+    height: 0.5em;
+    background-color: #FAB4C5;
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+}
+
+}
+
+// Interim solution until :focus-within has better support
+select:focus + .focus {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    border: 2px solid var(--select-focus);
+    border-radius: inherit;
+}
+
+select[multiple] {
+    padding-right: 0;
+    /*
+   * Safari will not reveal an option
+   * unless the select height has room to 
+   * show all of it
+   * Firefox and Chrome allow showing 
+   * a partial option
+   */
+    height: 6rem;
+    option
+
+{
+    white-space: normal;
+    // Only affects Chrome outline-color: var(--select-focus);
+}
+
+/* 
+   * Experimental - styling of selected options
+   * in the multiselect
+   * Not supported crossbrowser
+   */
+// &:not(:disabled) option {
+    // border-radius: 12px;
+    // transition: 120ms all ease-in;
+    // &:checked
+
+{
+    // background: linear-gradient(hsl(242, 61%, 76%), hsl(242, 61%, 71%));
+    // padding-left: 0.5em;
+    // color: black !important;
+    //
+}
+
+//
+}
+}
+
+.select--disabled {
+    cursor: not-allowed;
+    background-color: #eee;
+    background-image: linear-gradient(to top, #ddd, #eee 33%);
+}

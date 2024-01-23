@@ -1,0 +1,30 @@
+﻿@page
+@using System.Data.SqlClient;
+@using Microsoft.AspNetCore.Http;
+@{
+    try
+    {
+        string UserID = Request.Query["id"];
+        //UserID = HttpContext.Session.GetString("Username");
+        string connectionString = @"Data Source=DESKTOP-8KA02T7;Initial Catalog=FIFAWorldCup;Integrated Security=True";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+
+            connection.Open();
+
+            string DeleteQuery = "DELETE FROM UserAccount WHERE UserName='" + UserID+"'";
+            using (SqlCommand command = new SqlCommand(DeleteQuery, connection))
+            {
+                command.ExecuteNonQuery();
+            }
+            if(HttpContext.Session.GetString("UserType")=="2")
+                HttpContext.Session.Clear(); 
+            Response.Redirect("/Index");
+        }
+    }
+    catch(Exception ex)
+    {
+        
+    }
+}

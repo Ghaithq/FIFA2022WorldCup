@@ -1,0 +1,156 @@
+﻿@page
+@using System.Data
+@model DBProjectClone.Pages.PrevMatchesModel
+@{
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link href="~/css/upcoming.css" rel="stylesheet" />
+<link href="~/css/main.css" rel="stylesheet" />
+
+<div class="card-deck ">
+
+    @{
+        int i = 0;
+        int j = 0;
+        foreach (DataRow item in Model.Matches.Rows)
+        {
+            <div class="card">
+                    <div class="card-body">
+                        <div class="teamA">
+
+                            <img src=@Model.Flags[j] alt="" class="flag">
+                            <h4> @item["team1"]</h4>
+                        </div>
+
+                        <div class="Sep">
+                            <h4>@item["ScoreA"]      </h4>
+                            <h4>      -    </h4>
+                            <h4>      @item["ScoreB"]</h4>
+                        </div>
+                        <div class="teamB">
+
+                            <h4> @item["Team2"]</h4>
+                            <img src=@Model.Flags[j + 1] alt="" class="flag">
+                        </div>
+
+                    </div>
+                    <div class="StatusBar">
+                        <a class="btn btn-success " data-bs-toggle="modal" data-bs-target="#@("Rating" + i)" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            Show Stats
+                        </a>
+                    @if (Model.UserType == "1")
+                    {
+                        <a class="btn btn-success" href="/EditPreviousMatch?id=@item["MatchID"]" role="button">
+                            Edit 
+                        </a>
+                        <a class="btn btn-success" href="/DeletePreviousMatch?id=@item["MatchID"]" role="button">
+                            Delete
+                        </a>
+                    }
+                </div>
+            </div>
+
+
+        <div class="modal top fade" id="@("Rating" + i)" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false" data-bs-backdrop="true" data-bs-keyboard="true">
+            <div class="modal-dialog modal-xl  modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Statistics</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                                <table class="table ">
+                                    <tbody>
+                                        <tr>
+
+                                            <td>@Model.Refs[j] </td>
+                                            <td>Main/Side Referees</td>
+                                            <td>@Model.Refs[j + 1] </td>
+                                        </tr>
+
+                                        <tr>
+
+                                            <td>@item["ShotsA"] </td>
+                                            <td>TotalShots</td>
+                                            <td>@item["ShotsB"] </td>
+                                        </tr>
+                                        <tr>
+
+                                            <td>@item["YellowsA"] </td>
+                                            <td>Yellow Cards</td>
+                                            <td>@item["YellowsB"] </td>
+                                        </tr>
+                                        <tr>
+
+                                            <td>@item["RedsA"] </td>
+                                            <td>Red Cards</td>
+                                            <td>@item["RedsB"] </td>
+                                        </tr>
+                                        <tr>
+
+                                            <td>@item["PassesA"] </td>
+                                            <td>Passes</td>
+                                            <td>@item["PassesB"] </td>
+                                        </tr>
+                                        <tr>
+
+                                            <td>@item["AccuracyA"]% </td>
+                                            <td>Accuracy</td>
+                                            <td>@item["AccuracyB"]% </td>
+                                        </tr>
+                                        <tr>
+
+                                            <td>@item["PossessionA"]% </td>
+                                            <td>Possession</td>
+                                            <td>@item["PossessionB"]% </td>
+                                        </tr>
+                                        <tr>
+
+                                            <td>@item["FoulsA"] </td>
+                                            <td>Fouls</td>
+                                            <td>@item["FoulsB"] </td>
+                                        </tr>
+                                        <tr>
+
+                                            <td>@item["OffsidesA"] </td>
+                                            <td>Offsides</td>
+                                            <td>@item["OffsidesB"] </td>
+                                        </tr>
+                                        <tr>
+
+                                            <td>@item["CornersA"] </td>
+                                            <td>Corners</td>
+                                            <td>@item["CornersB"] </td>
+                                        </tr>
+                                        <tr>
+
+                                            <td>@item["ShotsOnTargetA"] </td>
+                                            <td>ShotsOnTarget</td>
+                                            <td>@item["ShotsOnTargetB"] </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+
+            i++;
+            j += 2;
+
+        }
+       }
+</div>
+
+
+
+
+
+
+
+
+
+
+

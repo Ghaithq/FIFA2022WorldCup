@@ -1,0 +1,105 @@
+﻿@page
+@model DBProjectClone.Pages.ViewTransactionsModel
+@{
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+
+
+<div class="container" >
+<br>
+<h2>
+    List of Transactions
+</h2>
+<div class="card">
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Match ID</th>
+                    <th>Seat Row</th>
+                    <th>Seat Column</th>
+                    <th>Stadium Name</th>
+                    <th>Ticket Type</th>
+                    <th>Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Transaction item in Model.transactions)
+                {
+                    <tr>
+                        <td>@item.ID</td>
+                        <td>@item.SeatRow</td>
+                        <td>@item.SeatCol</td>
+                        <td>@item.StadiumName</td>
+                        <td>@item.Ticket_Type</td>
+                        <td>
+                            <a class="btn btn-primary btn-lg" asp-page="EditReservation" asp-route-MatchID='@item.ID' asp-route-StadiumName='@item.StadiumName' asp-route-UserName='@Model.UserName' asp-route-TicketType='@item.Ticket_Type'  role="button">Edit</a>
+                            <button type="button" class="btn btn-danger btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                              Delete
+                            </button>
+
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Delete</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  </div>
+                                  <div class="modal-body">
+                                    Are You Sure You Want to Delete?
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancel</button>
+                                    <a class="btn btn-danger" asp-page="DeleteTransaction" asp-route-ID='@item.ID' asp-route-StadiumName='@item.StadiumName' asp-route-SeatRow='@item.SeatRow' asp-route-SeatColumn='@item.SeatCol' role="button">Delete</a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+
+
+
+
+@*                            <a class="btn btn-primary btn-sm" href="/DeleteAccount?id=@item["UserName"]" role="button">Delete</a>
+*@                       
+                            
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+<style>
+    body{
+        background: linear-gradient(var(--gr-1), #242333), url(../images/booking5.jpg) no-repeat center center;
+    }
+    h2{
+        color:white;
+    }
+
+    .card-body {
+        flex: 1 1 auto;
+        padding: 1rem 1rem;
+        border-radius:30px;
+        font-size:15px;
+    }
+
+    .card{
+        border-radius: 1.25rem;
+    }
+    /*.btn-lg, .btn-group-sm > .btn {
+        padding: 0.25rem 0.5rem;
+        font-size: .875rem;
+        border-radius: 0.2rem;
+    }*/
+</style>
+
+
+
+

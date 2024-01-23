@@ -1,0 +1,150 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@*<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>*@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QATAR World Cup 2022</title>
+    <link rel="stylesheet" href="/css/HomePage.css" />
+</head>
+
+<body>
+    <section id="hero1">
+        <header class="header">
+            <div class="container">
+                <nav class="navigation">
+                    <a href="/Index" class="logo">
+                        <img src="images/logo.svg" alt="Logo" class="logo-img" />
+                    </a>
+                    <div class="mobile-menu-icon">
+                        <ion-icon name="menu-outline" class="menu_icon"></ion-icon>
+                    </div>
+                    <ul class="nav_menu">
+                       
+                       
+                         @if (Model.UserAccount == null)
+                        {
+                            <li class="nav_list">
+                                <a href="/login" class="nav_link active">Login</a>
+                            </li>
+                        }
+                         @if (Model.UserAccount == null)
+                        {
+                            <li class="nav_list">
+                                <a href="/Add" class="nav_link active">Register</a>
+                            </li>
+                        }
+                        @if(Model.UserAccount!=null)
+                        {
+                            <li class="nav_list">
+                                <a href="/ProfilePage?id=@Model.UserAccount" class="nav_link active">@Model.UserAccount</a>
+                            </li>
+                        }
+                        @if(Model.UserAccount!=null)
+                        {
+                            <li class="nav_list">
+                                <a href="/Logout" class="nav_link active">Logout</a>
+                            </li>
+                        }
+                        
+
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="hero-main-container">
+            <div class="container">
+                <div class="hero-container">
+                    <div class="hero-content">
+                        <h1 class="section-heading">
+                            Our football dream <br /> starts here!
+                        </h1>
+                        <p class="paragraph">
+                            Come for World Cup matches & explore all over Qatar.
+                        </p>
+                        <div class="diiv">
+                            <a href="/Upcoming" class="btn-primary">
+                                <span>Upcoming Matches</span>
+                                <ion-icon name="log-out-outline"></ion-icon>
+                            </a>
+                        </div>
+                        <div class="divv2">
+                            <a href="/PrevMatches" class="btn1-primary">
+                                <span>Previous Matches</span>
+                                <ion-icon name="log-out-outline"></ion-icon>
+                            </a>
+                        </div>
+                        <div class="divv4">
+                            <a href="/Stadiums" class="btn3-primary">
+                                <span>Stadiums</span>
+                                <ion-icon name="log-out-outline"></ion-icon>
+                            </a>
+                        </div>
+                        <div class="divv3">
+                            <a href="/TeamPage" class="btn2-primary">
+                                <span>Teams</span>
+                                <ion-icon name="log-out-outline"></ion-icon>
+                            </a>
+                        </div>
+
+                        @if(Model.UserType!=null && Model.UserType=="1")
+                        {
+                            <div class="divv3">
+                            <a href="/ViewUsers" class="btn2-primary">
+                                <span>View Users</span>
+                                <ion-icon name="log-out-outline"></ion-icon>
+                            </a>
+                        </div>
+                        }
+                        @if(Model.UserType!=null && Model.UserType=="2")
+                        {
+                            <div class="divv3">
+                            <a href="/ViewTransactions?id=@Model.UserAccount" class="btn2-primary">
+                                <span>View My Tickets</span>
+                                <ion-icon name="log-out-outline"></ion-icon>
+                            </a>
+                        </div>
+                        }
+                        @if(Model.UserType!=null && Model.UserType=="1")
+                        {
+                            <div class="divv3">
+                            <a href="/AddNewAdmin" class="btn2-primary">
+                                <span>Add New Admin</span>
+                                <ion-icon name="log-out-outline"></ion-icon>
+                            </a>
+                        </div>
+                        }
+
+                    </div>
+                    <div class="hero-image">
+                        <img src="images/mascot.png" alt="hero-img" class="hero-img" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+<style>
+    #hero {
+        display: none;
+    }
+</style>

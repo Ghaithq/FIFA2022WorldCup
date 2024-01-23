@@ -1,0 +1,60 @@
+﻿@page
+@model DBProjectClone.Pages.EditReservationModel
+@{
+}
+
+
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/booking.css" rel="stylesheet" />
+    @*<link href="/css/reg.css" rel="stylesheet" />*@
+    <title>Stadium Seat Booking</title>
+</head>
+
+@if (TempData["errorMsg"]!=null)
+{
+    <div class='alert alert-warning alert-dismissible fade show' role="alert">
+        <strong> @TempData["errorMsg"].ToString()</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>
+}
+
+
+<body>
+ 
+        <div class="book">
+            <div class="container2">
+            <div class="title">Edit The Reservation</div>
+            <div class="content">
+                <form method="POST">
+                    <div class="user-details">
+                        
+
+                        <div class="input-box">
+                            <span class="details list-inline">Seats</span>
+                            <div class="select">
+                                <select class="select" id="Seats" name="Seats">
+                                        @foreach(object item in Model.seats)
+                                            {
+                                                <option >@item</option>
+                                            }
+                                </select>
+                            </div>
+                        </div>
+
+                       
+
+                    <div class="button">
+                        <input type="submit" value="Edit">
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        </div>
+ @*   </form>*@
+
+</body>

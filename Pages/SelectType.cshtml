@@ -1,0 +1,71 @@
+﻿@page
+@model DBProjectClone.Pages.SelectTypeModel
+@{
+}
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stadium Seat Booking</title>
+    <link href="~/css/selecttype.css" rel="stylesheet" />
+</head>
+
+@if (Model.errormesssage1.Length > 0)
+{
+    <div class='alert alert-warning alert-dismissible fade show' role="alert">
+        <strong> @Model.errormesssage1</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>
+}
+
+
+<body>
+    @*<form method="POST">*@
+
+    @*<div class="book">
+    <div class="movie-container">
+    <label> Select a Type:</label>
+    <form name="movieform">
+    <select id="movie" name="movie" name="TicketType" value="@Model.trans.TicketType">
+    @foreach (var item in Model.typelist)
+    {
+    <option value=@item.price>@item.type  (@item.price)$</option>
+    }
+    </select>
+    </form>
+    </div>*@
+
+    <div class="book">
+        <div class="container2">
+            <div class="title">Make Your Reservation</div>
+            <div class="content">
+                <form method="POST">
+                    <div class="user-details">
+                        <div class="input-box">
+                            <span class="details list-inline">Ticket Type</span>
+                            <div class="select">
+                                <select class="select" name="TicketType" id="TicketType">
+                                    @foreach (var item in Model.typelist)
+                                    {
+                                        <option value=@item.type>@item.type (@item.price$)</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <a>
+                        <div class="button">
+                            <input type="submit" value="Select" >
+                        </div>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    @*   </form>*@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/booking.js"></script>
+
+</body>
+

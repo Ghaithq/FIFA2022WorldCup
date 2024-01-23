@@ -1,0 +1,189 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+:root {
+    --primary-color: #9B1132;
+}
+
+body {
+    background: linear-gradient(var(--gr-1), #242333), url(../images/Al_Bayt_Stadium_2_1.jpg) no-repeat center center;
+}
+
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    min-width: 300px;
+    width: 80%;
+    margin: 10px;
+    padding-top: 5px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.card-deck {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.card-body {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(11,1fr);
+    grid-template-rows: 4fr,1fr;
+    padding: 0px;
+    font-size:16px;
+}
+
+.vs {
+    grid-row: 1;
+    grid-column: 6/7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.teamA {
+    grid-row: 1;
+    grid-column: 1/6;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 3px;
+}
+
+.Sep {
+    grid-row: 1;
+    grid-column: 6/7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    font-size: x-large;
+}
+
+
+.teamB {
+    grid-row: 1;
+    grid-column: 7/12;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-bottom: 3px;
+}
+
+.matchinfo {
+    grid-row: 2;
+    grid-column: 1/12;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    border-top: 1px solid black;
+    background-color: #9b1132;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.data {
+    width: 140px;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+}
+
+label
+{
+    color:white;
+}
+
+.flag {
+    height: 70px;
+    width: 70px;
+    object-fit: cover;
+}
+
+.btn-primary {
+    width: 140px;
+    background-color: white;
+    height: 21px;
+    font-size: 14px;
+    padding: 0px;
+    color: black;
+     border-color: none;
+}
+
+h4 {
+    /* text-transform:capitalize; */
+    font-variant: small-caps;
+}
+
+@media (max-width: 900px) {
+    .teamA {
+        flex-direction: column;
+    }
+
+    .teamB {
+        flex-direction: column-reverse;
+    }
+}
+
+.container-fluid{
+    max-width:1120px;
+}
+
+.table {
+    text-align:center;
+}
+
+
+.filter {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+select {
+    width: 100px;
+}

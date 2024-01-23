@@ -1,0 +1,69 @@
+﻿@page
+@model DBProjectClone.Pages.Shared.ProfilePageModel
+@{
+}
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/profile.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @*<link rel="stylesheet" href="~/WebApplication1.styles.css" asp-append-version="true" />*@
+</head>
+
+
+@if (Model.errormesssage.Length > 0)
+{
+    <div class='alert alert-warning alert-dismissible fade show' role="alert">
+        <strong> @Model.errormesssage</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>
+}
+
+@*@if (Model.successmessage.Length > 0)
+{
+    <div class='alert alert-success alert-dismissible fade show' role='alert'>
+        <strong>@Model.successmessage</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>
+}*@
+
+<body>
+    <div class="container2">
+        <div class="title">Profile</div>
+        <div class="content">
+            <form method="POST">
+                
+                <div class="user-details">
+                    <h6 class="heading-medium text-muted mb-4">User information</h6>
+                    <div class="input-box">
+                        <span class="details">Full name</span>
+                        <input type="text" value="@Model.User.fullname" name="fullname" readonly>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Username</span>
+                        <input type="text" value="@Model.User.username" name="username" readonly>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">E-Mail</span>
+                        <input type="text" value="@Model.User.email" name="email" readonly>
+                    </div>
+                    <h6 class="heading-small text-muted mb-4">Contact information</h6>
+                    <div class="input-box">
+                        <span class="details">Phone-Number</span>
+                        <input type="text" value="@Model.User.phone" name="phone" readonly>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Nationality</span>
+                        <input type="text" value="@Model.User.nationality" name="nationality" readonly>
+                    </div>
+                    
+                </div>
+
+                <div class="button">
+                    <a href="/EditProfile?id=@Model.User.username" data-role="button" data-inline="true" class="button1">Edit</a>
+                    <a href="/DeleteAccount?id=@Model.User.username" data-role="button" data-inline="true" data-theme="b" class="button2" >Remove Account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
